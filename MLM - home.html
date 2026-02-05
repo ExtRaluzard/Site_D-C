@@ -62,8 +62,8 @@
             </a>
                 <nav class="hidden md:flex gap-6 h-16 items-center">
                     <a href="index.html" class="nav-link h-full flex items-center text-sm font-semibold text-gray-700 border-b-3 border-transparent">Início</a>
-                    <a href="#" class="nav-link h-full flex items-center text-sm font-semibold text-gray-700 border-b-3 border-transparent">Processos</a>
-                    <a href="#" class="nav-link h-full flex items-center text-sm font-semibold text-gray-700 border-b-3 border-transparent">Ajuda <i class="fa-solid fa-chevron-down text-[10px] ml-1"></i></a>
+                    <a href="#" class="nav-link h-full flex items-center text-sm font-semibold text-gray-700 border-b-3 border-transparent">Procesos</a>
+                    <a href="#" class="nav-link h-full flex items-center text-sm font-semibold text-gray-700 border-b-3 border-transparent">Ayuda <i class="fa-solid fa-chevron-down text-[10px] ml-1"></i></a>
                 </nav>
             </div>
         </div>
@@ -74,7 +74,7 @@
         <div class="relative z-10 max-w-7xl w-full px-8 text-center md:text-left">
             <br><br>
             <h1 class="text-4xl font-bold text-white mb-2">MLM - D&C</h1>
-            <p class="text-white/80 text-lg max-w-xl">Directorio centralizado de herramientas, hojas de cálculo y paneles de control para los equipos de ingeniería y finanzas en Brasil.</p>
+            <p class="text-white/80 text-lg max-w-xl">Directorio centralizado de herramientas, hojas de cálculo y paneles de control para los equipos de ingeniería y finanzas.</p>
             <br><br><br><br><br><br>
         </div>
     </section>
@@ -83,102 +83,155 @@
         
         <div class="bg-white rounded-xl shadow-2xl overflow-hidden mb-10">
             <div class="flex flex-wrap border-b border-gray-200 bg-gray-50/50">
-                <button onclick="openTab(event, 'engenheiros')" class="tab-link px-6 py-4 text-xs font-bold text-gray-400 uppercase tracking-wider tab-active">
-                    <i class="fa-solid fa-helmet-safety mr-2"></i> Engenheiros
+                <button onclick="openTab(event, 'Ingeniería')" class="tab-link px-6 py-4 text-xs font-bold text-gray-400 uppercase tracking-wider tab-active">
+                    <i class="fa-solid fa-helmet-safety mr-2"></i> Ingeniería 
                 </button>
-                <button onclick="openTab(event, 'financeiro')" class="tab-link px-6 py-4 text-xs font-bold text-gray-400 uppercase tracking-wider">
-                    <i class="fa-solid fa-sack-dollar mr-2"></i> Financeiro
+                <button onclick="openTab(event, 'Finanzas')" class="tab-link px-6 py-4 text-xs font-bold text-gray-400 uppercase tracking-wider">
+                    <i class="fa-solid fa-sack-dollar mr-2"></i> Finanzas
                 </button>
-                <button onclick="openTab(event, 'dashboards')" class="tab-link px-6 py-4 text-xs font-bold text-gray-400 uppercase tracking-wider">
-                    <i class="fa-solid fa-chart-pie mr-2"></i> Dashboards
-                </button>
-                <button onclick="openTab(event, 'cartilhas')" class="tab-link px-6 py-4 text-xs font-bold text-gray-400 uppercase tracking-wider">
-                    <i class="fa-solid fa-book mr-2"></i> Cartilhas
+                <button onclick="openTab(event, 'Forms')" class="tab-link px-6 py-4 text-xs font-bold text-gray-400 uppercase tracking-wider">
+                    <i class="fa-solid fa-chart-pie mr-2"></i> Forms
                 </button>
             </div>
 
-            <div id="engenheiros" class="tab-content p-8 animate-in fade-in duration-300">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <a href="https://drive.google.com/drive/folders/0AGhHW5Ihl6VXUk9PVA" class="link-card p-5 rounded-xl bg-white border-l-4 border-l-blue-400 flex items-center gap-4">
-                        <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center"><i class="fa-solid fa-folder-tree"></i></div>
-                        <div><span class="block font-bold text-sm text-gray-800">Drive Construction</span><span class="text-[10px] text-gray-500">Acesso ao diretório do time.</span></div>
-                    </a>
-                    <a href="https://docs.google.com/spreadsheets/d/1Nr9zp63LMJtA6HnXGdOwR1WObgZwc0oPQ_fAVdcKRlU/" class="link-card p-5 rounded-xl bg-white border-l-4 border-l-yellow-400 flex items-center gap-4">
-                        <div class="w-10 h-10 bg-yellow-50 text-yellow-600 rounded-lg flex items-center justify-center"><i class="fa-solid fa-bullseye"></i></div>
-                        <div><span class="block font-bold text-sm text-gray-800">MLB Monthly Goals</span><span class="text-[10px] text-gray-500">Metas mensais da equipe.</span></div>
-                    </a>
+            <div id="Ingeniería" class="tab-content p-8 animate-in fade-in duration-300">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">                    
 
-                    <a href="https://docs.google.com/spreadsheets/d/1BSXN2yKr8z_D6RsiWJVdAQq5HMraEtKvpPXjVU6yupA/" class="link-card p-5 rounded-xl bg-white border-l-4 border-l-purple-400 flex items-center gap-4">
-                        <div class="w-10 h-10 bg-purple-50 text-purple-600 rounded-lg flex items-center justify-center"><i class="fa-solid fa-microchip"></i></div>
-                        <div><span class="block font-bold text-sm text-gray-800">Proyección Recorp</span><span class="text-[10px] text-gray-500">Acompanhamento de projeções.</span></div>
-                    </a>
-
-                    <a href="https://docs.google.com/spreadsheets/d/175r8fgjzlaP1gW1AHmmF81-lNfVZtK6aIcz4dCBBchA/" class="link-card p-5 rounded-xl bg-white border-l-4 border-l-purple-400 flex items-center gap-4">
-                        <div class="w-10 h-10 bg-purple-50 text-purple-600 rounded-lg flex items-center justify-center"><i class="fa-solid fa-microchip"></i></div>
-                        <div><span class="block font-bold text-sm text-gray-800">Proyección D&C</span><span class="text-[10px] text-gray-500">Acompanhamento de projeções.</span></div>
+                    <a href="https://docs.google.com/spreadsheets/d/1d53RlRgA_VGQsyC51ifcFrtgiPJcha3EPQNmTsBouOU/edit"
+                    class="link-card p-5 rounded-xl bg-white border-l-4 border-l-orange-400 flex items-center gap-4">
+                    <div class="w-10 h-10 bg-orange-50 text-orange-600 rounded-lg flex items-center justify-center">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <div>
+                        <span class="block font-bold text-sm text-gray-800">Monthly Goals</span>
+                        <span class="text-[10px] text-gray-500">Metas mensais</span>
+                    </div>
                     </a>
                     
-                    <a href="https://docs.google.com/spreadsheets/d/1HsETMuCer7AKm6F7XzGwVA2szyf_fV0D1TZYgXzNyyY/" class="link-card p-5 rounded-xl bg-gray-50 border-dashed border-2 flex flex-col gap-2 relative">
-                        <div class="flex items-center gap-4">
-                            
-                            <div class="w-10 h-10 bg-orange-100 text-orange-600 rounded-lg flex items-center justify-center"><i class="fa-solid fa-robot"></i></div>
-                            <div><span class="block font-bold text-sm text-gray-800">Robô Auxiliar</span><span class="text-[10px] text-gray-500 italic">Script para auxiliar equalizações.</span></div>
-                        </div>
-                        <div class="text-[9px] text-orange-700 bg-orange-50 p-2 rounded leading-tight">
-                            <strong>Nota:</strong> Para utilizar as automações, você deve realizar uma cópia do arquivo.
-                        </div>
+                    <a href="https://docs.google.com/spreadsheets/d/1si1TsOJ4ruGiC9e-pPAD_DYyKevUXu0M4Z3nsZ2jPMk/edit?gid=0#gid=0"
+                    class="link-card p-5 rounded-xl bg-white border-l-4 border-l-indigo-400 flex items-center gap-4">
+                    <div class="w-10 h-10 bg-indigo-50 text-indigo-600 rounded-lg flex items-center justify-center">
+                        <i class="fa-solid fa-list-check"></i>
+                    </div>
+                    <div>
+                        <span class="block font-bold text-sm text-gray-800">Seguimiento Análisis PU MLM</span>
+                        <span class="text-[10px] text-gray-500">Acompanhamento PU</span>
+                    </div>
+                    </a>
+
+                    <a href="https://docs.google.com/spreadsheets/d/1gFo944ClSnEq6jiKkbjkqiQxNGs29FMHQZ3drPXx20Q/edit?gid=0#gid=0"
+                    class="link-card p-5 rounded-xl bg-white border-l-4 border-l-sky-400 flex items-center gap-4">
+                    <div class="w-10 h-10 bg-sky-50 text-sky-600 rounded-lg flex items-center justify-center">
+                        <i class="fa-solid fa-file-invoice"></i>
+                    </div>
+                    <div>
+                        <span class="block font-bold text-sm text-gray-800">MLM One Page</span>
+                        <span class="text-[10px] text-gray-500">Bizz & Alfreds</span>
+                    </div>
                     </a>
                 </div>
             </div>
 
-            <div id="financeiro" class="tab-content p-8 hidden animate-in fade-in duration-300">
+            <div id="Finanzas" class="tab-content p-8 hidden animate-in fade-in duration-300">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <a href="https://docs.google.com/spreadsheets/d/1ucHpBG0tl0RHOLd3lyikEBmpyYnAuWOMyFI1mnhZEjY/" class="link-card p-5 rounded-xl bg-white border-l-4 border-l-green-500 flex items-center gap-4">
-                        <div class="w-10 h-10 bg-green-50 text-green-600 rounded-lg flex items-center justify-center"><i class="fa-solid fa-file-invoice-dollar"></i></div>
-                        <div><span class="block font-bold text-sm text-gray-800">Controle de NFs (Nova)</span><span class="text-[10px] text-gray-500 font-bold">Planilha de controle de pedidos e NFs.</span></div>
+                    
+                     <a href="https://docs.google.com/spreadsheets/d/1FIamdYT7lhiyJ0TKROkh4SV_YXJRiYJHPPy472DDi9Q/edit?gid=0#gid=0"
+                    class="link-card p-5 rounded-xl bg-white border-l-4 border-l-green-400 flex items-center gap-4">
+                    <div class="w-10 h-10 bg-green-50 text-green-600 rounded-lg flex items-center justify-center">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <div>
+                        <span class="block font-bold text-sm text-gray-800">Seguimiento POs</span>
+                        <span class="text-[10px] text-gray-500">Acompanhamento de POs</span>
+                    </div>
                     </a>
 
-                    <a href="https://docs.google.com/spreadsheets/d/1ucHpBG0tl0RHOLd3lyikEBmpyYnAuWOMyFI1mnhZEjY/" class="link-card p-5 rounded-xl bg-white border-l-4 border-l-green-500 flex items-center gap-4">
-                        <div class="w-10 h-10 bg-green-50 text-green-600 rounded-lg flex items-center justify-center"><i class="fa-solid fa-file-invoice-dollar"></i></div>
-                        <div><span class="block font-bold text-sm text-gray-800">Forms PO</span><span class="text-[10px] text-gray-500 font-bold">Planilha de controle de pedidos e NFs.</span></div>
+                    <a href="https://docs.google.com/spreadsheets/d/1i1UTC3PzGgYvi8BOW8gGyQ_RNkDB9lEls0tceYohQTk/edit?hl=es&forcehl=1&gid=1204590157#gid=1204590157"
+                    class="link-card p-5 rounded-xl bg-white border-l-4 border-l-purple-400 flex items-center gap-4">
+                    <div class="w-10 h-10 bg-purple-50 text-purple-600 rounded-lg flex items-center justify-center">
+                        <i class="fa-solid fa-user-check"></i>
+                    </div>
+                    <div>
+                        <span class="block font-bold text-sm text-gray-800">Control de Aprobaciones OC’s</span>
+                        <span class="text-[10px] text-gray-500">Gerente de Compras</span>
+                    </div>
                     </a>
 
-                    <a href="https://docs.google.com/spreadsheets/d/1ucHpBG0tl0RHOLd3lyikEBmpyYnAuWOMyFI1mnhZEjY/" class="link-card p-5 rounded-xl bg-white border-l-4 border-l-green-500 flex items-center gap-4">
-                        <div class="w-10 h-10 bg-green-50 text-green-600 rounded-lg flex items-center justify-center"><i class="fa-solid fa-file-invoice-dollar"></i></div>
-                        <div><span class="block font-bold text-sm text-gray-800">Forms NFs</span><span class="text-[10px] text-gray-500 font-bold">Planilha de controle de pedidos e NFs.</span></div>
+                    <a href="https://docs.google.com/spreadsheets/d/1OlOZV4v6cYrJVc3uTM_bn2WyYw15kg03fCKXcKXE_xw/edit?gid=411884985#gid=411884985"
+                    class="link-card p-5 rounded-xl bg-white border-l-4 border-l-emerald-400 flex items-center gap-4">
+                    <div class="w-10 h-10 bg-emerald-50 text-emerald-600 rounded-lg flex items-center justify-center">
+                        <i class="fa-solid fa-coins"></i>
+                    </div>
+                    <div>
+                        <span class="block font-bold text-sm text-gray-800">MLM Control Financiero</span>
+                        <span class="text-[10px] text-gray-500">Controle financeiro</span>
+                    </div>
                     </a>
+
+                    <a href="https://docs.google.com/spreadsheets/d/1Ru9wDMYGT3Z8leoKnPoaJPQntVswbgEoY3clF62Ccvc/edit?gid=0#gid=0"
+                    class="link-card p-5 rounded-xl bg-white border-l-4 border-l-teal-400 flex items-center gap-4">
+                    <div class="w-10 h-10 bg-teal-50 text-teal-600 rounded-lg flex items-center justify-center">
+                        <i class="fa-solid fa-wallet"></i>
+                    </div>
+                    <div>
+                        <span class="block font-bold text-sm text-gray-800">Allowance & TI Trackers</span>
+                        <span class="text-[10px] text-gray-500">Controle de despesas</span>
+                    </div>
+                    </a>
+
+                    <a href="https://docs.google.com/spreadsheets/d/1OiYGwu7f0AEruxuvWfRXbacxxuEJOJzV/edit?gid=207543345#gid=207543345"
+                    class="link-card p-5 rounded-xl bg-white border-l-4 border-l-gray-400 flex items-center gap-4">
+                    <div class="w-10 h-10 bg-gray-100 text-gray-600 rounded-lg flex items-center justify-center">
+                        <i class="fa-solid fa-truck"></i>
+                    </div>
+                    <div>
+                        <span class="block font-bold text-sm text-gray-800">D&C Tracking Compras</span>
+                        <span class="text-[10px] text-gray-500">Rastreamento de compras</span>
+                    </div>
+                    </a>
+
                 </div>
             </div>
-            
-            <div id="dashboards" class="tab-content p-8 hidden animate-in fade-in duration-300">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <a href="https://lookerstudio.google.com/reporting/12055166-18af-465f-b5a1-3196bc2e6385/page/p_xsf1dvcqyd" class="link-card p-5 rounded-xl bg-white border-l-4 border-l-blue-400 flex items-center gap-4">
-                        <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center"><i class="fa-solid fa-database"></i></div>
-                        <div><span class="block font-bold text-sm text-gray-800">Saldos de OIs</span><span class="text-[10px] text-gray-500 italic">Arquivo Looker.</span></div>
-                    </a>
-                     <a href="https://lookerstudio.google.com/reporting/260dc1c5-296d-4ffe-8163-9d91418ce10b" class="link-card p-5 rounded-xl bg-white border-l-4 border-l-purple-400 flex items-center gap-4">
-                        <div class="w-10 h-10 bg-purple-50 text-purple-600 rounded-lg flex items-center justify-center"><i class="fa-solid fa-database"></i></div>
-                        <div><span class="block font-bold text-sm text-gray-800">Acuracidade Forecast</span><span class="text-[10px] text-gray-500 italic">Arquivo Looker.</span></div>
-                    </a>
-                </div>
-            </div>
 
-            <div id="cartilhas" class="tab-content p-8 hidden animate-in fade-in duration-300">
+            <div id="Forms" class="tab-content p-8 hidden animate-in fade-in duration-300">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <a href="https://extraluzard.github.io/cartilha_monitor/" 
-                        class="link-card p-5 rounded-xl bg-white border-l-4 border-l-orange-400 flex items-center gap-4">
-                        <div class="w-10 h-10 bg-orange-50 text-orange-600 rounded-lg flex items-center justify-center"><i class="fa-solid fa-book-open"></i></div>
-                        <div><span class="block font-bold text-sm text-gray-800">Manual de Fornecedores</span><span class="text-[10px] text-gray-500">Instruções para envio de NFs.</span></div>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScX08JX_b_QE4ieVKR8O9Z7svu0FMgjhjnK9oxSWX5wHvMnyQ/viewform?usp=header"
+                    class="link-card p-5 rounded-xl bg-white border-l-4 border-l-blue-400 flex items-center gap-4">
+                    <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center">
+                        <i class="fa-solid fa-file-lines"></i>
+                    </div>
+                    <div>
+                        <span class="block font-bold text-sm text-gray-800">Forms PO</span>
+                        <span class="text-[10px] text-gray-500">Formulário de Purchase Order</span>
+                    </div>
                     </a>
 
-                    <a href="https://docs.google.com/presentation/d/102rRHmlCIl59QyzKoFUHdPWdOxhOr7XwS2rtRXv7MZU/edit?usp=sharing" 
-                        class="link-card p-5 rounded-xl bg-white border-l-4 border-l-blue-400 flex items-center gap-4">
-                        <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center"><i class="fa-solid fa-book-open"></i></div>
-                        <div><span class="block font-bold text-sm text-gray-800">Manual WOW Capex</span><span class="text-[10px] text-gray-500">Instruções para abertura de Alfred.</span></div>
+                    <a href="https://docs.google.com/forms/d/1VtxC7t763LWIEPF_ckv-JHtO3xhhE2jRdbRcWRBLw0g/edit"
+                    class="link-card p-5 rounded-xl bg-white border-l-4 border-l-yellow-400 flex items-center gap-4">
+                    <div class="w-10 h-10 bg-yellow-50 text-yellow-600 rounded-lg flex items-center justify-center">
+                        <i class="fa-solid fa-arrows-rotate"></i>
+                    </div>
+                    <div>
+                        <span class="block font-bold text-sm text-gray-800">Forms Change Orders</span>
+                        <span class="text-[10px] text-gray-500">Solicitação de mudança</span>
+                    </div>
+                    </a>
+
+                    <a href="https://docs.google.com/forms/d/1EquSlWmsk-0EbjGanu97aIeHnUe-pghc19c6bv2lEzI/edit"
+                    class="link-card p-5 rounded-xl bg-white border-l-4 border-l-red-400 flex items-center gap-4">
+                    <div class="w-10 h-10 bg-red-50 text-red-600 rounded-lg flex items-center justify-center">
+                        <i class="fa-solid fa-magnifying-glass-dollar"></i>
+                    </div>
+                    <div>
+                        <span class="block font-bold text-sm text-gray-800">Solicitud Análisis de Costos</span>
+                        <span class="text-[10px] text-gray-500">Solicitação de análise</span>
+                    </div>
                     </a>
                 </div>
             </div>
         </div>
+
+        
 <!-- 
         Calendario 
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
@@ -186,29 +239,25 @@
         <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
             <div class="flex items-center justify-between mb-6 border-b border-gray-100 pb-4">
                 <h3 class="text-lg font-bold text-gray-800 flex items-center gap-2">
-                    <i class="fa-solid fa-link text-blue-500"></i>Links Rápidos
+                    <i class="fa-solid fa-link text-blue-500"></i> Enlaces útiles
                 </h3>
                 <span class="text-[10px] bg-blue-50 text-blue-600 px-2 py-1 rounded-full font-bold uppercase">Uso Diário</span>
             </div>
             
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                
                 <a href="https://meli-prd.workzone.cfapps.us10.hana.ondemand.com/site#workzone-home&/home" class="quick-link-item flex items-center p-3 rounded-lg border border-gray-50 transition-colors group">
-                    <img src="https://ok3static.oktacdn.com/fs/bco/1/fs01qr8d9ez620FXA1d8"  class="fa-solid fa-globe w-8 text-yellow-400 group-hover:text-yellow-500"></i>
-                    <span class="text-sm font-medium text-gray-600 group-hover:text-grey-900">Meli Central Buying</span>
-                </a>
-
-                <a href="https://meli-prd.workzone.cfapps.us10.hana.ondemand.com/site#notasfiscalesbr-display?sap-app-origin-hint=&sap-ui-app-id-hint=saas_approuter_meli.p2p.monitordenotasfiscalesbr&/&/" class="quick-link-item flex items-center p-3 rounded-lg border border-gray-50 transition-colors group">
-                    <i class="fa-solid fa-money-check-dollar w-8 text-yellow-400 group-hover:text-Yellow-500"></i>
-                    <span class="text-sm font-medium text-gray-600 group-hover:text-gray-900">Monitor</span>
+                    <img src="https://ok3static.oktacdn.com/fs/bco/1/fs01qr8d9ez620FXA1d8" alt="Meli Icon" class="w-8 h-8 object-contain mr-3">
+                    <span class="text-sm font-medium text-gray-600 group-hover:text-gray-900">Meli Central Buying</span>
                 </a>
                 
                 <a href="https://mercadolibre.klassmatt.com.br/MenuPrincipal.aspx?k=5885g2ornufctbg0ico4ea0c1pxx_386&rk=4633e33561e341f2133" class="quick-link-item flex items-center p-3 rounded-lg border border-gray-50 transition-colors group">
-                    <i class="fa-solid fa-k w-8 text-blue-600 group-hover:text-blue-500"></i>
+                    <i class="fa-solid fa-k w-8 text-lg text-center text-blue-600 group-hover:text-blue-500 mr-2"></i>
                     <span class="text-sm font-medium text-gray-600 group-hover:text-gray-900">Klassmatt</span>
                 </a>
 
                 <a href="#" class="quick-link-item flex items-center p-3 rounded-lg border border-gray-50 transition-colors group">
-                    <i class="fa-brands fa-dochub w-8 text-blue-600 group-hover:text-blue-500"></i>
+                    <i class="fa-brands fa-dochub w-8 text-lg text-center text-blue-600 group-hover:text-blue-500 mr-2"></i>
                     <span class="text-sm font-medium text-gray-600 group-hover:text-gray-900">CLM</span>
                 </a>
 
@@ -219,11 +268,11 @@
     <footer class="bg-white border-t border-gray-200 py-6 mt-auto">
         <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
             <div class="text-xs text-gray-400">
-                &copy; 2026 Mercado Livre - Departamento Financeiro - D&C - MLB
+                &copy; 2026 Mercado Livre - Departamento de Finanzas - D&C - MLB
             </div>
             <div class="flex gap-6 items-center">
                 <a href="https://wa.me/11934509161" class="text-xs font-bold meli-blue-text flex items-center gap-2">
-                    <i class="fa-brands fa-whatsapp text-green-500 text-lg"></i> Suporte Financeiro
+                    <i class="fa-brands fa-whatsapp text-green-500 text-lg"></i> Apoyo financiero
                 </a>
                 <img src="https://http2.mlstatic.com/frontend-assets/ml-web-navigation/ui-navigation/5.21.22/mercadolibre/logo__large_plus.png" alt="Meli" class="h-4">
             </div>
