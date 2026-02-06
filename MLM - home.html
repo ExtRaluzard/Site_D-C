@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="h-full bg-[#f5f5f5]">
+<html lang="es" class="h-full bg-[#f5f5f5]">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,37 +19,28 @@
             background-size: cover;
             background-position: center;
             height: 320px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: flex; align-items: center; justify-content: center;
         }
         .hero-overlay {
-            position: absolute;
-            inset: 0;
+            position: absolute; inset: 0;
             background: linear-gradient(to bottom, rgba(45, 50, 119, 0.7), rgba(255, 241, 89, 0.4));
         }
+        .tab-active { border-bottom: 4px solid #2d3277; color: #2d3277; font-weight: 700; background-color: white; }
+        .link-card { transition: all 0.2s ease-in-out; border: 1px solid #e5e7eb; }
+        .link-card:hover { transform: translateY(-2px); border-color: #fff159; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
+        .quick-link-item:hover { background-color: #fefce8; color: #2d3277; }
 
-        .tab-active {
-            border-bottom: 4px solid #2d3277;
-            color: #2d3277;
-            font-weight: 700;
-            background-color: white;
+        /* Botão de Idioma Flutuante */
+        .lang-btn {
+            position: fixed; bottom: 20px; right: 20px; z-index: 100;
+            background: white; border: 1px solid #e5e7eb;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-radius: 9999px; padding: 8px 16px;
+            cursor: pointer; transition: all 0.3s;
+            display: flex; align-items: center; gap: 8px;
+            font-weight: bold; color: #2d3277;
         }
-        
-        .link-card {
-            transition: all 0.2s ease-in-out;
-            border: 1px solid #e5e7eb;
-        }
-        .link-card:hover {
-            transform: translateY(-2px);
-            border-color: #fff159;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-
-        .quick-link-item:hover {
-            background-color: #fefce8;
-            color: #2d3277;
-        }
+        .lang-btn:hover { transform: scale(1.05); background-color: #fff159; }
     </style>
 </head>
 <body class="h-full flex flex-col">
@@ -61,9 +52,9 @@
                 <img src="https://http2.mlstatic.com/frontend-assets/ml-web-navigation/ui-navigation/5.21.22/mercadolibre/logo__large_plus.png" alt="Meli" class="h-9">
             </a>
                 <nav class="hidden md:flex gap-6 h-16 items-center">
-                    <a href="index.html" class="nav-link h-full flex items-center text-sm font-semibold text-gray-700 border-b-3 border-transparent">Início</a>
-                    <a href="#" class="nav-link h-full flex items-center text-sm font-semibold text-gray-700 border-b-3 border-transparent">Procesos</a>
-                    <a href="#" class="nav-link h-full flex items-center text-sm font-semibold text-gray-700 border-b-3 border-transparent">Ayuda <i class="fa-solid fa-chevron-down text-[10px] ml-1"></i></a>
+                    <a href="index.html" class="nav-link h-full flex items-center text-sm font-semibold text-gray-700 border-b-3 border-transparent" data-translate="nav_home">Início</a>
+                    <a href="#" class="nav-link h-full flex items-center text-sm font-semibold text-gray-700 border-b-3 border-transparent" data-translate="nav_processes">Procesos</a>
+                    <a href="#" class="nav-link h-full flex items-center text-sm font-semibold text-gray-700 border-b-3 border-transparent"><span data-translate="nav_help">Ayuda</span> <i class="fa-solid fa-chevron-down text-[10px] ml-1"></i></a>
                 </nav>
             </div>
         </div>
@@ -74,7 +65,7 @@
         <div class="relative z-10 max-w-7xl w-full px-8 text-center md:text-left">
             <br><br>
             <h1 class="text-4xl font-bold text-white mb-2">MLM - D&C</h1>
-            <p class="text-white/80 text-lg max-w-xl">Directorio centralizado de herramientas, hojas de cálculo y paneles de control para los equipos de ingeniería y finanzas.</p>
+            <p class="text-white/80 text-lg max-w-xl" data-translate="hero_desc">Directorio centralizado de herramientas, hojas de cálculo y paneles de control para los equipos de ingeniería y finanzas.</p>
             <br><br><br><br><br><br>
         </div>
     </section>
@@ -84,10 +75,10 @@
         <div class="bg-white rounded-xl shadow-2xl overflow-hidden mb-10">
             <div class="flex flex-wrap border-b border-gray-200 bg-gray-50/50">
                 <button onclick="openTab(event, 'Ingeniería')" class="tab-link px-6 py-4 text-xs font-bold text-gray-400 uppercase tracking-wider tab-active">
-                    <i class="fa-solid fa-helmet-safety mr-2"></i> Ingeniería 
+                    <i class="fa-solid fa-helmet-safety mr-2"></i> <span data-translate="tab_eng">Ingeniería</span>
                 </button>
                 <button onclick="openTab(event, 'Finanzas')" class="tab-link px-6 py-4 text-xs font-bold text-gray-400 uppercase tracking-wider">
-                    <i class="fa-solid fa-sack-dollar mr-2"></i> Finanzas
+                    <i class="fa-solid fa-sack-dollar mr-2"></i> <span data-translate="tab_fin">Finanzas</span>
                 </button>
                 <button onclick="openTab(event, 'Forms')" class="tab-link px-6 py-4 text-xs font-bold text-gray-400 uppercase tracking-wider">
                     <i class="fa-solid fa-chart-pie mr-2"></i> Forms
@@ -96,171 +87,93 @@
 
             <div id="Ingeniería" class="tab-content p-8 animate-in fade-in duration-300">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">                    
-
-                    <a href="https://docs.google.com/spreadsheets/d/1d53RlRgA_VGQsyC51ifcFrtgiPJcha3EPQNmTsBouOU/edit"
-                    class="link-card p-5 rounded-xl bg-white border-l-4 border-l-orange-400 flex items-center gap-4">
-                    <div class="w-10 h-10 bg-orange-50 text-orange-600 rounded-lg flex items-center justify-center">
-                        <i class="fa-solid fa-bullseye"></i>
-                    </div>
-                    <div>
-                        <span class="block font-bold text-sm text-gray-800">Monthly Goals</span>
-                        <span class="text-[10px] text-gray-500">Metas mensais</span>
-                    </div>
+                    <a href="https://docs.google.com/spreadsheets/d/1d53RlRgA_VGQsyC51ifcFrtgiPJcha3EPQNmTsBouOU/edit" class="link-card p-5 rounded-xl bg-white border-l-4 border-l-orange-400 flex items-center gap-4">
+                        <div class="w-10 h-10 bg-orange-50 text-orange-600 rounded-lg flex items-center justify-center"><i class="fa-solid fa-bullseye"></i></div>
+                        <div><span class="block font-bold text-sm text-gray-800">Monthly Goals</span><span class="text-[10px] text-gray-500" data-translate="desc_goals">Metas mensais</span></div>
                     </a>
                     
-                    <a href="https://docs.google.com/spreadsheets/d/1si1TsOJ4ruGiC9e-pPAD_DYyKevUXu0M4Z3nsZ2jPMk/edit?gid=0#gid=0"
-                    class="link-card p-5 rounded-xl bg-white border-l-4 border-l-indigo-400 flex items-center gap-4">
-                    <div class="w-10 h-10 bg-indigo-50 text-indigo-600 rounded-lg flex items-center justify-center">
-                        <i class="fa-solid fa-list-check"></i>
-                    </div>
-                    <div>
-                        <span class="block font-bold text-sm text-gray-800">Seguimiento Análisis PU MLM</span>
-                        <span class="text-[10px] text-gray-500">Acompanhamento PU</span>
-                    </div>
+                    <a href="https://docs.google.com/spreadsheets/d/1si1TsOJ4ruGiC9e-pPAD_DYyKevUXu0M4Z3nsZ2jPMk/edit?gid=0#gid=0" class="link-card p-5 rounded-xl bg-white border-l-4 border-l-indigo-400 flex items-center gap-4">
+                        <div class="w-10 h-10 bg-indigo-50 text-indigo-600 rounded-lg flex items-center justify-center"><i class="fa-solid fa-list-check"></i></div>
+                        <div><span class="block font-bold text-sm text-gray-800" data-translate="title_pu">Seguimiento Análisis PU MLM</span><span class="text-[10px] text-gray-500" data-translate="desc_pu">Acompanhamento PU</span></div>
                     </a>
 
-                    <a href="https://docs.google.com/spreadsheets/d/1gFo944ClSnEq6jiKkbjkqiQxNGs29FMHQZ3drPXx20Q/edit?gid=0#gid=0"
-                    class="link-card p-5 rounded-xl bg-white border-l-4 border-l-sky-400 flex items-center gap-4">
-                    <div class="w-10 h-10 bg-sky-50 text-sky-600 rounded-lg flex items-center justify-center">
-                        <i class="fa-solid fa-file-invoice"></i>
-                    </div>
-                    <div>
-                        <span class="block font-bold text-sm text-gray-800">MLM One Page</span>
-                        <span class="text-[10px] text-gray-500">Bizz & Alfreds</span>
-                    </div>
+                    <a href="https://docs.google.com/spreadsheets/d/1gFo944ClSnEq6jiKkbjkqiQxNGs29FMHQZ3drPXx20Q/edit?gid=0#gid=0" class="link-card p-5 rounded-xl bg-white border-l-4 border-l-sky-400 flex items-center gap-4">
+                        <div class="w-10 h-10 bg-sky-50 text-sky-600 rounded-lg flex items-center justify-center"><i class="fa-solid fa-file-invoice"></i></div>
+                        <div><span class="block font-bold text-sm text-gray-800">MLM One Page</span><span class="text-[10px] text-gray-500" data-translate="desc_onepage">Bizz & Alfreds</span></div>
                     </a>
                 </div>
             </div>
 
             <div id="Finanzas" class="tab-content p-8 hidden animate-in fade-in duration-300">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    
-                     <a href="https://docs.google.com/spreadsheets/d/1FIamdYT7lhiyJ0TKROkh4SV_YXJRiYJHPPy472DDi9Q/edit?gid=0#gid=0"
-                    class="link-card p-5 rounded-xl bg-white border-l-4 border-l-green-400 flex items-center gap-4">
-                    <div class="w-10 h-10 bg-green-50 text-green-600 rounded-lg flex items-center justify-center">
-                        <i class="fa-solid fa-chart-line"></i>
-                    </div>
-                    <div>
-                        <span class="block font-bold text-sm text-gray-800">Seguimiento POs</span>
-                        <span class="text-[10px] text-gray-500">Acompanhamento de POs</span>
-                    </div>
+                    <a href="https://docs.google.com/spreadsheets/d/1FIamdYT7lhiyJ0TKROkh4SV_YXJRiYJHPPy472DDi9Q/edit?gid=0#gid=0" class="link-card p-5 rounded-xl bg-white border-l-4 border-l-green-400 flex items-center gap-4">
+                        <div class="w-10 h-10 bg-green-50 text-green-600 rounded-lg flex items-center justify-center"><i class="fa-solid fa-chart-line"></i></div>
+                        <div><span class="block font-bold text-sm text-gray-800" data-translate="title_pos">Seguimiento POs</span><span class="text-[10px] text-gray-500" data-translate="desc_pos">Acompanhamento de POs</span></div>
                     </a>
 
-                    <a href="https://docs.google.com/spreadsheets/d/1i1UTC3PzGgYvi8BOW8gGyQ_RNkDB9lEls0tceYohQTk/edit?hl=es&forcehl=1&gid=1204590157#gid=1204590157"
-                    class="link-card p-5 rounded-xl bg-white border-l-4 border-l-purple-400 flex items-center gap-4">
-                    <div class="w-10 h-10 bg-purple-50 text-purple-600 rounded-lg flex items-center justify-center">
-                        <i class="fa-solid fa-user-check"></i>
-                    </div>
-                    <div>
-                        <span class="block font-bold text-sm text-gray-800">Control de Aprobaciones OC’s</span>
-                        <span class="text-[10px] text-gray-500">Gerente de Compras</span>
-                    </div>
+                    <a href="https://docs.google.com/spreadsheets/d/1i1UTC3PzGgYvi8BOW8gGyQ_RNkDB9lEls0tceYohQTk/edit?hl=es&forcehl=1&gid=1204590157#gid=1204590157" class="link-card p-5 rounded-xl bg-white border-l-4 border-l-purple-400 flex items-center gap-4">
+                        <div class="w-10 h-10 bg-purple-50 text-purple-600 rounded-lg flex items-center justify-center"><i class="fa-solid fa-user-check"></i></div>
+                        <div><span class="block font-bold text-sm text-gray-800" data-translate="title_aprob">Control de Aprobaciones OC’s</span><span class="text-[10px] text-gray-500" data-translate="desc_aprob">Gerente de Compras</span></div>
                     </a>
 
-                    <a href="https://docs.google.com/spreadsheets/d/1OlOZV4v6cYrJVc3uTM_bn2WyYw15kg03fCKXcKXE_xw/edit?gid=411884985#gid=411884985"
-                    class="link-card p-5 rounded-xl bg-white border-l-4 border-l-emerald-400 flex items-center gap-4">
-                    <div class="w-10 h-10 bg-emerald-50 text-emerald-600 rounded-lg flex items-center justify-center">
-                        <i class="fa-solid fa-coins"></i>
-                    </div>
-                    <div>
-                        <span class="block font-bold text-sm text-gray-800">MLM Control Financiero</span>
-                        <span class="text-[10px] text-gray-500">Controle financeiro</span>
-                    </div>
+                    <a href="https://docs.google.com/spreadsheets/d/1OlOZV4v6cYrJVc3uTM_bn2WyYw15kg03fCKXcKXE_xw/edit?gid=411884985#gid=411884985" class="link-card p-5 rounded-xl bg-white border-l-4 border-l-emerald-400 flex items-center gap-4">
+                        <div class="w-10 h-10 bg-emerald-50 text-emerald-600 rounded-lg flex items-center justify-center"><i class="fa-solid fa-coins"></i></div>
+                        <div><span class="block font-bold text-sm text-gray-800" data-translate="title_control">MLM Control Financiero</span><span class="text-[10px] text-gray-500" data-translate="desc_control">Controle financeiro</span></div>
                     </a>
 
-                    <a href="https://docs.google.com/spreadsheets/d/1Ru9wDMYGT3Z8leoKnPoaJPQntVswbgEoY3clF62Ccvc/edit?gid=0#gid=0"
-                    class="link-card p-5 rounded-xl bg-white border-l-4 border-l-teal-400 flex items-center gap-4">
-                    <div class="w-10 h-10 bg-teal-50 text-teal-600 rounded-lg flex items-center justify-center">
-                        <i class="fa-solid fa-wallet"></i>
-                    </div>
-                    <div>
-                        <span class="block font-bold text-sm text-gray-800">Allowance & TI Trackers</span>
-                        <span class="text-[10px] text-gray-500">Controle de despesas</span>
-                    </div>
+                    <a href="https://docs.google.com/spreadsheets/d/1Ru9wDMYGT3Z8leoKnPoaJPQntVswbgEoY3clF62Ccvc/edit?gid=0#gid=0" class="link-card p-5 rounded-xl bg-white border-l-4 border-l-teal-400 flex items-center gap-4">
+                        <div class="w-10 h-10 bg-teal-50 text-teal-600 rounded-lg flex items-center justify-center"><i class="fa-solid fa-wallet"></i></div>
+                        <div><span class="block font-bold text-sm text-gray-800">Allowance & TI Trackers</span><span class="text-[10px] text-gray-500" data-translate="desc_allowance">Controle de despesas</span></div>
                     </a>
 
-                    <a href="https://docs.google.com/spreadsheets/d/1OiYGwu7f0AEruxuvWfRXbacxxuEJOJzV/edit?gid=207543345#gid=207543345"
-                    class="link-card p-5 rounded-xl bg-white border-l-4 border-l-gray-400 flex items-center gap-4">
-                    <div class="w-10 h-10 bg-gray-100 text-gray-600 rounded-lg flex items-center justify-center">
-                        <i class="fa-solid fa-truck"></i>
-                    </div>
-                    <div>
-                        <span class="block font-bold text-sm text-gray-800">D&C Tracking Compras</span>
-                        <span class="text-[10px] text-gray-500">Rastreamento de compras</span>
-                    </div>
+                    <a href="https://docs.google.com/spreadsheets/d/1OiYGwu7f0AEruxuvWfRXbacxxuEJOJzV/edit?gid=207543345#gid=207543345" class="link-card p-5 rounded-xl bg-white border-l-4 border-l-gray-400 flex items-center gap-4">
+                        <div class="w-10 h-10 bg-gray-100 text-gray-600 rounded-lg flex items-center justify-center"><i class="fa-solid fa-truck"></i></div>
+                        <div><span class="block font-bold text-sm text-gray-800">D&C Tracking Compras</span><span class="text-[10px] text-gray-500" data-translate="desc_track">Rastreamento de compras</span></div>
                     </a>
-
                 </div>
             </div>
 
             <div id="Forms" class="tab-content p-8 hidden animate-in fade-in duration-300">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScX08JX_b_QE4ieVKR8O9Z7svu0FMgjhjnK9oxSWX5wHvMnyQ/viewform?usp=header"
-                    class="link-card p-5 rounded-xl bg-white border-l-4 border-l-blue-400 flex items-center gap-4">
-                    <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center">
-                        <i class="fa-solid fa-file-lines"></i>
-                    </div>
-                    <div>
-                        <span class="block font-bold text-sm text-gray-800">Forms PO</span>
-                        <span class="text-[10px] text-gray-500">Formulário de Purchase Order</span>
-                    </div>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScX08JX_b_QE4ieVKR8O9Z7svu0FMgjhjnK9oxSWX5wHvMnyQ/viewform?usp=header" class="link-card p-5 rounded-xl bg-white border-l-4 border-l-blue-400 flex items-center gap-4">
+                        <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center"><i class="fa-solid fa-file-lines"></i></div>
+                        <div><span class="block font-bold text-sm text-gray-800">Forms PO</span><span class="text-[10px] text-gray-500" data-translate="desc_form_po">Formulário de Purchase Order</span></div>
                     </a>
 
-                    <a href="https://docs.google.com/forms/d/1VtxC7t763LWIEPF_ckv-JHtO3xhhE2jRdbRcWRBLw0g/edit"
-                    class="link-card p-5 rounded-xl bg-white border-l-4 border-l-yellow-400 flex items-center gap-4">
-                    <div class="w-10 h-10 bg-yellow-50 text-yellow-600 rounded-lg flex items-center justify-center">
-                        <i class="fa-solid fa-arrows-rotate"></i>
-                    </div>
-                    <div>
-                        <span class="block font-bold text-sm text-gray-800">Forms Change Orders</span>
-                        <span class="text-[10px] text-gray-500">Solicitação de mudança</span>
-                    </div>
+                    <a href="https://docs.google.com/forms/d/1VtxC7t763LWIEPF_ckv-JHtO3xhhE2jRdbRcWRBLw0g/edit" class="link-card p-5 rounded-xl bg-white border-l-4 border-l-yellow-400 flex items-center gap-4">
+                        <div class="w-10 h-10 bg-yellow-50 text-yellow-600 rounded-lg flex items-center justify-center"><i class="fa-solid fa-arrows-rotate"></i></div>
+                        <div><span class="block font-bold text-sm text-gray-800" data-translate="title_change">Forms Change Orders</span><span class="text-[10px] text-gray-500" data-translate="desc_change">Solicitação de mudança</span></div>
                     </a>
 
-                    <a href="https://docs.google.com/forms/d/1EquSlWmsk-0EbjGanu97aIeHnUe-pghc19c6bv2lEzI/edit"
-                    class="link-card p-5 rounded-xl bg-white border-l-4 border-l-red-400 flex items-center gap-4">
-                    <div class="w-10 h-10 bg-red-50 text-red-600 rounded-lg flex items-center justify-center">
-                        <i class="fa-solid fa-magnifying-glass-dollar"></i>
-                    </div>
-                    <div>
-                        <span class="block font-bold text-sm text-gray-800">Solicitud Análisis de Costos</span>
-                        <span class="text-[10px] text-gray-500">Solicitação de análise</span>
-                    </div>
+                    <a href="https://docs.google.com/forms/d/1EquSlWmsk-0EbjGanu97aIeHnUe-pghc19c6bv2lEzI/edit" class="link-card p-5 rounded-xl bg-white border-l-4 border-l-red-400 flex items-center gap-4">
+                        <div class="w-10 h-10 bg-red-50 text-red-600 rounded-lg flex items-center justify-center"><i class="fa-solid fa-magnifying-glass-dollar"></i></div>
+                        <div><span class="block font-bold text-sm text-gray-800" data-translate="title_solicitud">Solicitud Análisis de Costos</span><span class="text-[10px] text-gray-500" data-translate="desc_solicitud">Solicitação de análise</span></div>
                     </a>
                 </div>
             </div>
         </div>
 
-        
-<!-- 
-        Calendario 
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
-
         <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
             <div class="flex items-center justify-between mb-6 border-b border-gray-100 pb-4">
                 <h3 class="text-lg font-bold text-gray-800 flex items-center gap-2">
-                    <i class="fa-solid fa-link text-blue-500"></i> Enlaces útiles
+                    <i class="fa-solid fa-link text-blue-500"></i> <span data-translate="links_title">Enlaces útiles</span>
                 </h3>
-                <span class="text-[10px] bg-blue-50 text-blue-600 px-2 py-1 rounded-full font-bold uppercase">Uso Diário</span>
+                <span class="text-[10px] bg-blue-50 text-blue-600 px-2 py-1 rounded-full font-bold uppercase" data-translate="links_badge">Uso Diario</span>
             </div>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                
                 <a href="https://meli-prd.workzone.cfapps.us10.hana.ondemand.com/site#workzone-home&/home" class="quick-link-item flex items-center p-3 rounded-lg border border-gray-50 transition-colors group">
                     <img src="https://ok3static.oktacdn.com/fs/bco/1/fs01qr8d9ez620FXA1d8" alt="Meli Icon" class="w-8 h-8 object-contain mr-3">
                     <span class="text-sm font-medium text-gray-600 group-hover:text-gray-900">Meli Central Buying</span>
                 </a>
-                
                 <a href="https://mercadolibre.klassmatt.com.br/MenuPrincipal.aspx?k=5885g2ornufctbg0ico4ea0c1pxx_386&rk=4633e33561e341f2133" class="quick-link-item flex items-center p-3 rounded-lg border border-gray-50 transition-colors group">
                     <i class="fa-solid fa-k w-8 text-lg text-center text-blue-600 group-hover:text-blue-500 mr-2"></i>
                     <span class="text-sm font-medium text-gray-600 group-hover:text-gray-900">Klassmatt</span>
                 </a>
-
                 <a href="#" class="quick-link-item flex items-center p-3 rounded-lg border border-gray-50 transition-colors group">
                     <i class="fa-brands fa-dochub w-8 text-lg text-center text-blue-600 group-hover:text-blue-500 mr-2"></i>
                     <span class="text-sm font-medium text-gray-600 group-hover:text-gray-900">CLM</span>
                 </a>
-
             </div>
         </div>
     </main>
@@ -268,18 +181,122 @@
     <footer class="bg-white border-t border-gray-200 py-6 mt-auto">
         <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
             <div class="text-xs text-gray-400">
-                &copy; 2026 Mercado Livre - Departamento de Finanzas - D&C - MLB
+                &copy; 2026 Mercado Livre - <span data-translate="footer_dept">Departamento de Finanzas</span> - D&C - MLB
             </div>
             <div class="flex gap-6 items-center">
                 <a href="https://wa.me/11934509161" class="text-xs font-bold meli-blue-text flex items-center gap-2">
-                    <i class="fa-brands fa-whatsapp text-green-500 text-lg"></i> Apoyo financiero
+                    <i class="fa-brands fa-whatsapp text-green-500 text-lg"></i> <span data-translate="footer_support">Apoyo financiero</span>
                 </a>
                 <img src="https://http2.mlstatic.com/frontend-assets/ml-web-navigation/ui-navigation/5.21.22/mercadolibre/logo__large_plus.png" alt="Meli" class="h-4">
             </div>
         </div>
     </footer>
 
+    <button onclick="toggleLanguage()" class="lang-btn">
+        <i class="fa-solid fa-globe"></i>
+        <span id="langLabel">ES</span>
+    </button>
+
     <script>
+        // 1. Dicionário de Traduções MLM
+        const translations = {
+            es: {
+                nav_home: "Inicio",
+                nav_processes: "Procesos",
+                nav_help: "Ayuda",
+                hero_desc: "Directorio centralizado de herramientas, hojas de cálculo y paneles de control para los equipos de ingeniería y finanzas.",
+                tab_eng: "Ingeniería",
+                tab_fin: "Finanzas",
+                
+                // Cards Ingeniería
+                desc_goals: "Metas mensuales",
+                title_pu: "Seguimiento Análisis PU MLM",
+                desc_pu: "Seguimiento PU",
+                desc_onepage: "Bizz & Alfreds",
+
+                // Cards Finanzas
+                title_pos: "Seguimiento POs",
+                desc_pos: "Seguimiento de POs",
+                title_aprob: "Control de Aprobaciones OC’s",
+                desc_aprob: "Gerente de Compras",
+                title_control: "MLM Control Financiero",
+                desc_control: "Control financiero",
+                desc_allowance: "Control de gastos",
+                desc_track: "Rastreo de compras",
+
+                // Cards Forms
+                desc_form_po: "Formulario de Purchase Order",
+                title_change: "Forms Change Orders",
+                desc_change: "Solicitud de cambio",
+                title_solicitud: "Solicitud Análisis de Costos",
+                desc_solicitud: "Solicitud de análisis",
+
+                links_title: "Enlaces útiles",
+                links_badge: "Uso Diario",
+                footer_dept: "Departamento de Finanzas",
+                footer_support: "Apoyo financiero"
+            },
+            pt: {
+                nav_home: "Início",
+                nav_processes: "Processos",
+                nav_help: "Ajuda",
+                hero_desc: "Diretório centralizado de ferramentas, planilhas e dashboards para as equipes de Engenharia e Financeiro.",
+                tab_eng: "Engenharia",
+                tab_fin: "Financeiro",
+
+                // Cards Engenharia
+                desc_goals: "Metas mensais",
+                title_pu: "Acompanhamento Análise PU MLM",
+                desc_pu: "Acompanhamento PU",
+                desc_onepage: "Bizz & Alfreds",
+
+                // Cards Financeiro
+                title_pos: "Acompanhamento POs",
+                desc_pos: "Acompanhamento de POs",
+                title_aprob: "Controle de Aprovações OCs",
+                desc_aprob: "Gerente de Compras",
+                title_control: "MLM Controle Financeiro",
+                desc_control: "Controle financeiro",
+                desc_allowance: "Controle de despesas",
+                desc_track: "Rastreamento de compras",
+
+                // Cards Forms
+                desc_form_po: "Formulário de Purchase Order",
+                title_change: "Formulário Change Orders",
+                desc_change: "Solicitação de mudança",
+                title_solicitud: "Solicitação Análise de Custos",
+                desc_solicitud: "Solicitação de análise",
+
+                links_title: "Links úteis",
+                links_badge: "Uso Diário",
+                footer_dept: "Departamento Financeiro",
+                footer_support: "Suporte Financeiro"
+            }
+        };
+
+        // Estado atual
+        let currentLang = localStorage.getItem('siteLangMLM') || 'es'; // Padrão Espanhol
+
+        function updatePageLanguage() {
+            // Atualiza textos estáticos (data-translate)
+            document.querySelectorAll('[data-translate]').forEach(el => {
+                const key = el.getAttribute('data-translate');
+                if (translations[currentLang][key]) {
+                    el.innerText = translations[currentLang][key];
+                }
+            });
+
+            // Atualiza label do botão e tag html
+            document.getElementById('langLabel').innerText = currentLang === 'es' ? 'ES' : 'PT';
+            document.documentElement.lang = currentLang;
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'es' ? 'pt' : 'es';
+            localStorage.setItem('siteLangMLM', currentLang); // Chave diferente do outro site para não conflitar
+            updatePageLanguage();
+        }
+
         function openTab(evt, tabName) {
             var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tab-content");
@@ -289,6 +306,11 @@
             document.getElementById(tabName).classList.remove("hidden");
             evt.currentTarget.classList.add("tab-active");
         }
+
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', () => {
+            updatePageLanguage();
+        });
     </script>
 </body>
 </html>
