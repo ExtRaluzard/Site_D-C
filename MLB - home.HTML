@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="h-full bg-[#f5f5f5]">
+<html lang="es" class="h-full bg-[#f5f5f5]">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,37 +19,28 @@
             background-size: cover;
             background-position: center;
             height: 320px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: flex; align-items: center; justify-content: center;
         }
         .hero-overlay {
-            position: absolute;
-            inset: 0;
+            position: absolute; inset: 0;
             background: linear-gradient(to bottom, rgba(45, 50, 119, 0.7), rgba(255, 241, 89, 0.4));
         }
-
-        .tab-active {
-            border-bottom: 4px solid #2d3277;
-            color: #2d3277;
-            font-weight: 700;
-            background-color: white;
-        }
+        .tab-active { border-bottom: 4px solid #2d3277; color: #2d3277; font-weight: 700; background-color: white; }
+        .link-card { transition: all 0.2s ease-in-out; border: 1px solid #e5e7eb; }
+        .link-card:hover { transform: translateY(-2px); border-color: #fff159; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
+        .quick-link-item:hover { background-color: #fefce8; color: #2d3277; }
         
-        .link-card {
-            transition: all 0.2s ease-in-out;
-            border: 1px solid #e5e7eb;
+        /* Botão de Idioma Flutuante */
+        .lang-btn {
+            position: fixed; bottom: 20px; right: 20px; z-index: 100;
+            background: white; border: 1px solid #e5e7eb;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-radius: 9999px; padding: 8px 16px;
+            cursor: pointer; transition: all 0.3s;
+            display: flex; align-items: center; gap: 8px;
+            font-weight: bold; color: #2d3277;
         }
-        .link-card:hover {
-            transform: translateY(-2px);
-            border-color: #fff159;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-
-        .quick-link-item:hover {
-            background-color: #fefce8;
-            color: #2d3277;
-        }
+        .lang-btn:hover { transform: scale(1.05); background-color: #fff159; }
     </style>
 </head>
 <body class="h-full flex flex-col">
@@ -57,13 +48,13 @@
     <header class="meli-yellow shadow-sm sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
             <div class="flex items-center gap-8">
-            <a href="index.html"> 
-                <img src="https://http2.mlstatic.com/frontend-assets/ml-web-navigation/ui-navigation/5.21.22/mercadolibre/logo__large_plus.png" alt="Meli" class="h-9">
-            </a>
+                <a href="index.html"> 
+                    <img src="https://http2.mlstatic.com/frontend-assets/ml-web-navigation/ui-navigation/5.21.22/mercadolibre/logo__large_plus.png" alt="Meli" class="h-9">
+                </a>
                 <nav class="hidden md:flex gap-6 h-16 items-center">
-                    <a href="index.html" class="nav-link h-full flex items-center text-sm font-semibold text-gray-700 border-b-3 border-transparent">Início</a>
-                    <a href="#" class="nav-link h-full flex items-center text-sm font-semibold text-gray-700 border-b-3 border-transparent">Processos</a>
-                    <a href="#" class="nav-link h-full flex items-center text-sm font-semibold text-gray-700 border-b-3 border-transparent">Ajuda <i class="fa-solid fa-chevron-down text-[10px] ml-1"></i></a>
+                    <a href="#" class="nav-link h-full flex items-center text-sm font-semibold text-gray-700 border-b-3 border-transparent" data-translate="nav_home">Inicio</a>
+                    <a href="#" class="nav-link h-full flex items-center text-sm font-semibold text-gray-700 border-b-3 border-transparent" data-translate="nav_processes">Procesos</a>
+                    <a href="#" class="nav-link h-full flex items-center text-sm font-semibold text-gray-700 border-b-3 border-transparent"><span data-translate="nav_help">Ayuda</span> <i class="fa-solid fa-chevron-down text-[10px] ml-1"></i></a>
                 </nav>
             </div>
         </div>
@@ -74,7 +65,7 @@
         <div class="relative z-10 max-w-7xl w-full px-8 text-center md:text-left">
             <br><br>
             <h1 class="text-4xl font-bold text-white mb-2">MLB - D&C</h1>
-            <p class="text-white/80 text-lg max-w-xl">Diretório centralizado de ferramentas, planilhas e dashboards para as equipes de Engenharia e Financeiro do Brasil.</p>
+            <p class="text-white/80 text-lg max-w-xl" data-translate="hero_desc">Directorio centralizado de herramientas, planillas y dashboards para los equipos de Ingeniería y Finanzas de Brasil.</p>
             <br><br><br><br><br><br>
         </div>
     </section>
@@ -83,49 +74,41 @@
         
         <div class="bg-white rounded-xl shadow-2xl overflow-hidden mb-10">
             <div class="flex flex-wrap border-b border-gray-200 bg-gray-50/50">
-                <button onclick="openTab(event, 'engenheiros')" class="tab-link px-6 py-4 text-xs font-bold text-gray-400 uppercase tracking-wider tab-active">
-                    <i class="fa-solid fa-helmet-safety mr-2"></i> Engenheiros
+                <button onclick="openTab(event, 'ingenieros')" class="tab-link px-6 py-4 text-xs font-bold text-gray-400 uppercase tracking-wider tab-active">
+                    <i class="fa-solid fa-helmet-safety mr-2"></i> <span data-translate="tab_engineers">Ingenieros</span>
                 </button>
                 <button onclick="openTab(event, 'financeiro')" class="tab-link px-6 py-4 text-xs font-bold text-gray-400 uppercase tracking-wider">
-                    <i class="fa-solid fa-sack-dollar mr-2"></i> Financeiro
+                    <i class="fa-solid fa-sack-dollar mr-2"></i> <span data-translate="tab_finance">Finanzas</span>
                 </button>
                 <button onclick="openTab(event, 'dashboards')" class="tab-link px-6 py-4 text-xs font-bold text-gray-400 uppercase tracking-wider">
                     <i class="fa-solid fa-chart-pie mr-2"></i> Dashboards
                 </button>
                 <button onclick="openTab(event, 'cartilhas')" class="tab-link px-6 py-4 text-xs font-bold text-gray-400 uppercase tracking-wider">
-                    <i class="fa-solid fa-book mr-2"></i> Cartilhas
+                    <i class="fa-solid fa-book mr-2"></i> <span data-translate="tab_guides">Guías</span>
                 </button>
             </div>
 
-            <div id="engenheiros" class="tab-content p-8 animate-in fade-in duration-300">
+            <div id="ingenieros" class="tab-content p-8 animate-in fade-in duration-300">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <a href="https://drive.google.com/drive/folders/0AGhHW5Ihl6VXUk9PVA" class="link-card p-5 rounded-xl bg-white border-l-4 border-l-blue-400 flex items-center gap-4">
+                    <a href="#" class="link-card p-5 rounded-xl bg-white border-l-4 border-l-blue-400 flex items-center gap-4">
                         <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center"><i class="fa-solid fa-folder-tree"></i></div>
-                        <div><span class="block font-bold text-sm text-gray-800">Drive Construction</span><span class="text-[10px] text-gray-500">Acesso ao diretório do time.</span></div>
+                        <div><span class="block font-bold text-sm text-gray-800">Drive Construction</span><span class="text-[10px] text-gray-500" data-translate="desc_drive">Acceso al directorio del equipo.</span></div>
                     </a>
-                    <a href="https://docs.google.com/spreadsheets/d/1Nr9zp63LMJtA6HnXGdOwR1WObgZwc0oPQ_fAVdcKRlU/" class="link-card p-5 rounded-xl bg-white border-l-4 border-l-yellow-400 flex items-center gap-4">
+                    <a href="#" class="link-card p-5 rounded-xl bg-white border-l-4 border-l-yellow-400 flex items-center gap-4">
                         <div class="w-10 h-10 bg-yellow-50 text-yellow-600 rounded-lg flex items-center justify-center"><i class="fa-solid fa-bullseye"></i></div>
-                        <div><span class="block font-bold text-sm text-gray-800">MLB Monthly Goals</span><span class="text-[10px] text-gray-500">Metas mensais da equipe.</span></div>
+                        <div><span class="block font-bold text-sm text-gray-800">MLB Monthly Goals</span><span class="text-[10px] text-gray-500" data-translate="desc_goals">Metas mensuales del equipo.</span></div>
                     </a>
-
-                    <a href="https://docs.google.com/spreadsheets/d/1BSXN2yKr8z_D6RsiWJVdAQq5HMraEtKvpPXjVU6yupA/" class="link-card p-5 rounded-xl bg-white border-l-4 border-l-purple-400 flex items-center gap-4">
+                    <a href="#" class="link-card p-5 rounded-xl bg-white border-l-4 border-l-purple-400 flex items-center gap-4">
                         <div class="w-10 h-10 bg-purple-50 text-purple-600 rounded-lg flex items-center justify-center"><i class="fa-solid fa-microchip"></i></div>
-                        <div><span class="block font-bold text-sm text-gray-800">Proyección Recorp</span><span class="text-[10px] text-gray-500">Acompanhamento de projeções.</span></div>
+                        <div><span class="block font-bold text-sm text-gray-800">Proyección Recorp</span><span class="text-[10px] text-gray-500" data-translate="desc_projection">Seguimiento de proyecciones.</span></div>
                     </a>
-
-                    <a href="https://docs.google.com/spreadsheets/d/175r8fgjzlaP1gW1AHmmF81-lNfVZtK6aIcz4dCBBchA/" class="link-card p-5 rounded-xl bg-white border-l-4 border-l-purple-400 flex items-center gap-4">
-                        <div class="w-10 h-10 bg-purple-50 text-purple-600 rounded-lg flex items-center justify-center"><i class="fa-solid fa-microchip"></i></div>
-                        <div><span class="block font-bold text-sm text-gray-800">Proyección D&C</span><span class="text-[10px] text-gray-500">Acompanhamento de projeções.</span></div>
-                    </a>
-                    
-                    <a href="https://docs.google.com/spreadsheets/d/1HsETMuCer7AKm6F7XzGwVA2szyf_fV0D1TZYgXzNyyY/" class="link-card p-5 rounded-xl bg-gray-50 border-dashed border-2 flex flex-col gap-2 relative">
+                    <a href="#" class="link-card p-5 rounded-xl bg-gray-50 border-dashed border-2 flex flex-col gap-2 relative">
                         <div class="flex items-center gap-4">
-                            
                             <div class="w-10 h-10 bg-orange-100 text-orange-600 rounded-lg flex items-center justify-center"><i class="fa-solid fa-robot"></i></div>
-                            <div><span class="block font-bold text-sm text-gray-800">Robô Auxiliar</span><span class="text-[10px] text-gray-500 italic">Script para auxiliar equalizações.</span></div>
+                            <div><span class="block font-bold text-sm text-gray-800" data-translate="card_robot">Robot Auxiliar</span><span class="text-[10px] text-gray-500 italic" data-translate="desc_robot">Script para asistir ecualizaciones.</span></div>
                         </div>
                         <div class="text-[9px] text-orange-700 bg-orange-50 p-2 rounded leading-tight">
-                            <strong>Nota:</strong> Para utilizar as automações, você deve realizar uma cópia do arquivo.
+                            <strong data-translate="note_label">Nota:</strong> <span data-translate="note_robot">Para usar la automatización, haga una copia del archivo.</span>
                         </div>
                     </a>
                 </div>
@@ -133,85 +116,84 @@
 
             <div id="financeiro" class="tab-content p-8 hidden animate-in fade-in duration-300">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <a href="https://docs.google.com/spreadsheets/d/1ucHpBG0tl0RHOLd3lyikEBmpyYnAuWOMyFI1mnhZEjY/" class="link-card p-5 rounded-xl bg-white border-l-4 border-l-green-500 flex items-center gap-4">
+                    <a href="#" class="link-card p-5 rounded-xl bg-white border-l-4 border-l-green-500 flex items-center gap-4">
                         <div class="w-10 h-10 bg-green-50 text-green-600 rounded-lg flex items-center justify-center"><i class="fa-solid fa-file-invoice-dollar"></i></div>
-                        <div><span class="block font-bold text-sm text-gray-800">Controle de NFs (Nova)</span><span class="text-[10px] text-gray-500 font-bold">Planilha de controle de pedidos e NFs.</span></div>
+                        <div><span class="block font-bold text-sm text-gray-800" data-translate="card_nfs">Control de NFs (Nueva)</span><span class="text-[10px] text-gray-500 font-bold" data-translate="desc_nfs">Planilla de control de pedidos.</span></div>
                     </a>
+                    </div>
+            </div>
 
-                    <a href="https://docs.google.com/spreadsheets/d/1ucHpBG0tl0RHOLd3lyikEBmpyYnAuWOMyFI1mnhZEjY/" class="link-card p-5 rounded-xl bg-white border-l-4 border-l-green-500 flex items-center gap-4">
-                        <div class="w-10 h-10 bg-green-50 text-green-600 rounded-lg flex items-center justify-center"><i class="fa-solid fa-file-invoice-dollar"></i></div>
-                        <div><span class="block font-bold text-sm text-gray-800">Forms PO</span><span class="text-[10px] text-gray-500 font-bold">Planilha de controle de pedidos e NFs.</span></div>
-                    </a>
-
-                    <a href="https://docs.google.com/spreadsheets/d/1ucHpBG0tl0RHOLd3lyikEBmpyYnAuWOMyFI1mnhZEjY/" class="link-card p-5 rounded-xl bg-white border-l-4 border-l-green-500 flex items-center gap-4">
-                        <div class="w-10 h-10 bg-green-50 text-green-600 rounded-lg flex items-center justify-center"><i class="fa-solid fa-file-invoice-dollar"></i></div>
-                        <div><span class="block font-bold text-sm text-gray-800">Forms NFs</span><span class="text-[10px] text-gray-500 font-bold">Planilha de controle de pedidos e NFs.</span></div>
+            <div id="dashboards" class="tab-content p-8 hidden animate-in fade-in duration-300">
+                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <a href="#" class="link-card p-5 rounded-xl bg-white border-l-4 border-l-blue-400 flex items-center gap-4">
+                        <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center"><i class="fa-solid fa-database"></i></div>
+                        <div><span class="block font-bold text-sm text-gray-800">Saldos de OIs</span><span class="text-[10px] text-gray-500 italic" data-translate="desc_looker">Archivo Looker.</span></div>
                     </a>
                 </div>
             </div>
             
-            <div id="dashboards" class="tab-content p-8 hidden animate-in fade-in duration-300">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <a href="https://lookerstudio.google.com/reporting/12055166-18af-465f-b5a1-3196bc2e6385/page/p_xsf1dvcqyd" class="link-card p-5 rounded-xl bg-white border-l-4 border-l-blue-400 flex items-center gap-4">
-                        <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center"><i class="fa-solid fa-database"></i></div>
-                        <div><span class="block font-bold text-sm text-gray-800">Saldos de OIs</span><span class="text-[10px] text-gray-500 italic">Arquivo Looker.</span></div>
-                    </a>
-                     <a href="https://lookerstudio.google.com/reporting/260dc1c5-296d-4ffe-8163-9d91418ce10b" class="link-card p-5 rounded-xl bg-white border-l-4 border-l-purple-400 flex items-center gap-4">
-                        <div class="w-10 h-10 bg-purple-50 text-purple-600 rounded-lg flex items-center justify-center"><i class="fa-solid fa-database"></i></div>
-                        <div><span class="block font-bold text-sm text-gray-800">Acuracidade Forecast</span><span class="text-[10px] text-gray-500 italic">Arquivo Looker.</span></div>
+            <div id="cartilhas" class="tab-content p-8 hidden animate-in fade-in duration-300">
+                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <a href="#" class="link-card p-5 rounded-xl bg-white border-l-4 border-l-orange-400 flex items-center gap-4">
+                        <div class="w-10 h-10 bg-orange-50 text-orange-600 rounded-lg flex items-center justify-center"><i class="fa-solid fa-book-open"></i></div>
+                        <div><span class="block font-bold text-sm text-gray-800" data-translate="card_manual">Manual de Proveedores</span><span class="text-[10px] text-gray-500" data-translate="desc_manual">Instrucciones para envío de NFs.</span></div>
                     </a>
                 </div>
             </div>
 
-            <div id="cartilhas" class="tab-content p-8 hidden animate-in fade-in duration-300">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <a href="https://extraluzard.github.io/cartilha_monitor/" 
-                        class="link-card p-5 rounded-xl bg-white border-l-4 border-l-orange-400 flex items-center gap-4">
-                        <div class="w-10 h-10 bg-orange-50 text-orange-600 rounded-lg flex items-center justify-center"><i class="fa-solid fa-book-open"></i></div>
-                        <div><span class="block font-bold text-sm text-gray-800">Manual de Fornecedores</span><span class="text-[10px] text-gray-500">Instruções para envio de NFs.</span></div>
-                    </a>
+        </div>
 
-                    <a href="https://docs.google.com/presentation/d/102rRHmlCIl59QyzKoFUHdPWdOxhOr7XwS2rtRXv7MZU/edit?usp=sharing" 
-                        class="link-card p-5 rounded-xl bg-white border-l-4 border-l-blue-400 flex items-center gap-4">
-                        <div class="w-10 h-10 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center"><i class="fa-solid fa-book-open"></i></div>
-                        <div><span class="block font-bold text-sm text-gray-800">Manual WOW Capex</span><span class="text-[10px] text-gray-500">Instruções para abertura de Alfred.</span></div>
-                    </a>
+        <div class="bg-white rounded-xl shadow-lg p-6 mb-10 border border-gray-100 relative overflow-hidden">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-lg font-bold text-gray-800 flex items-center gap-2">
+                    <i class="fa-regular fa-calendar-check text-blue-500"></i> <span data-translate="calendar_title">Calendario</span>
+                </h3>
+                
+                <div class="flex items-center gap-2 bg-gray-50 rounded-lg p-1">
+                    <button onclick="changeMonth(-1)" class="w-8 h-8 flex items-center justify-center rounded-md hover:bg-white hover:shadow-sm text-gray-500 transition-all">
+                        <i class="fa-solid fa-chevron-left text-xs"></i>
+                    </button>
+                    <span id="monthYearDisplay" class="text-xs font-bold text-gray-700 uppercase min-w-[100px] text-center"></span>
+                    <button onclick="changeMonth(1)" class="w-8 h-8 flex items-center justify-center rounded-md hover:bg-white hover:shadow-sm text-gray-500 transition-all">
+                        <i class="fa-solid fa-chevron-right text-xs"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-8">
+                <div class="flex-1">
+                    <div id="weekdaysGrid" class="grid grid-cols-7 mb-2 text-center"></div>
+                    <div id="calendarGrid" class="grid grid-cols-7 gap-1 text-center text-sm"></div>
+                </div>
+
+                <div class="w-full md:w-64 border-l border-gray-100 pl-0 md:pl-8 pt-6 md:pt-0">
+                    <h4 class="text-xs font-bold text-gray-400 uppercase mb-4 tracking-wider" data-translate="calendar_highlights">Destacados del Mes</h4>
+                    <div id="eventList" class="space-y-3"></div>
                 </div>
             </div>
         </div>
-<!-- 
-        Calendario 
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
 
         <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
             <div class="flex items-center justify-between mb-6 border-b border-gray-100 pb-4">
                 <h3 class="text-lg font-bold text-gray-800 flex items-center gap-2">
-                    <i class="fa-solid fa-link text-blue-500"></i>Links Rápidos
+                    <i class="fa-solid fa-link text-blue-500"></i> <span data-translate="links_title">Enlaces Rápidos</span>
                 </h3>
-                <span class="text-[10px] bg-blue-50 text-blue-600 px-2 py-1 rounded-full font-bold uppercase">Uso Diário</span>
+                <span class="text-[10px] bg-blue-50 text-blue-600 px-2 py-1 rounded-full font-bold uppercase" data-translate="links_badge">Uso Diario</span>
             </div>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-                <a href="https://meli-prd.workzone.cfapps.us10.hana.ondemand.com/site#workzone-home&/home" class="quick-link-item flex items-center p-3 rounded-lg border border-gray-50 transition-colors group">
-                    <img src="https://ok3static.oktacdn.com/fs/bco/1/fs01qr8d9ez620FXA1d8"  class="fa-solid fa-globe w-8 text-yellow-400 group-hover:text-yellow-500"></i>
-                    <span class="text-sm font-medium text-gray-600 group-hover:text-grey-900">Meli Central Buying</span>
+                <a href="#" class="quick-link-item flex items-center p-3 rounded-lg border border-gray-50 transition-colors group">
+                    <span class="text-sm font-medium text-gray-600 group-hover:text-gray-900">Meli Central Buying</span>
                 </a>
-
-                <a href="https://meli-prd.workzone.cfapps.us10.hana.ondemand.com/site#notasfiscalesbr-display?sap-app-origin-hint=&sap-ui-app-id-hint=saas_approuter_meli.p2p.monitordenotasfiscalesbr&/&/" class="quick-link-item flex items-center p-3 rounded-lg border border-gray-50 transition-colors group">
-                    <i class="fa-solid fa-money-check-dollar w-8 text-yellow-400 group-hover:text-Yellow-500"></i>
+                <a href="#" class="quick-link-item flex items-center p-3 rounded-lg border border-gray-50 transition-colors group">
                     <span class="text-sm font-medium text-gray-600 group-hover:text-gray-900">Monitor</span>
                 </a>
-                
-                <a href="https://mercadolibre.klassmatt.com.br/MenuPrincipal.aspx?k=5885g2ornufctbg0ico4ea0c1pxx_386&rk=4633e33561e341f2133" class="quick-link-item flex items-center p-3 rounded-lg border border-gray-50 transition-colors group">
-                    <i class="fa-solid fa-k w-8 text-blue-600 group-hover:text-blue-500"></i>
+                <a href="#" class="quick-link-item flex items-center p-3 rounded-lg border border-gray-50 transition-colors group">
                     <span class="text-sm font-medium text-gray-600 group-hover:text-gray-900">Klassmatt</span>
                 </a>
-
-                <a href="#" class="quick-link-item flex items-center p-3 rounded-lg border border-gray-50 transition-colors group">
-                    <i class="fa-brands fa-dochub w-8 text-blue-600 group-hover:text-blue-500"></i>
+                 <a href="#" class="quick-link-item flex items-center p-3 rounded-lg border border-gray-50 transition-colors group">
                     <span class="text-sm font-medium text-gray-600 group-hover:text-gray-900">CLM</span>
                 </a>
-
             </div>
         </div>
     </main>
@@ -219,18 +201,223 @@
     <footer class="bg-white border-t border-gray-200 py-6 mt-auto">
         <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
             <div class="text-xs text-gray-400">
-                &copy; 2026 Mercado Livre - Departamento Financeiro - D&C - MLB
+                &copy; 2026 Mercado Livre - <span data-translate="footer_dept">Departamento de Finanzas</span> - D&C - MLB
             </div>
             <div class="flex gap-6 items-center">
-                <a href="https://wa.me/11934509161" class="text-xs font-bold meli-blue-text flex items-center gap-2">
-                    <i class="fa-brands fa-whatsapp text-green-500 text-lg"></i> Suporte Financeiro
+                <a href="#" class="text-xs font-bold meli-blue-text flex items-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-green-500 text-lg"></i> <span data-translate="footer_support">Soporte Finanzas</span>
                 </a>
                 <img src="https://http2.mlstatic.com/frontend-assets/ml-web-navigation/ui-navigation/5.21.22/mercadolibre/logo__large_plus.png" alt="Meli" class="h-4">
             </div>
         </div>
     </footer>
 
+    <button onclick="toggleLanguage()" class="lang-btn">
+        <i class="fa-solid fa-globe"></i>
+        <span id="langLabel">ES</span>
+    </button>
+
     <script>
+        // --- 1. Dicionário de Traduções ---
+        const translations = {
+            es: {
+                nav_home: "Inicio",
+                nav_processes: "Procesos",
+                nav_help: "Ayuda",
+                hero_desc: "Directorio centralizado de herramientas, planillas y dashboards para los equipos de Ingeniería y Finanzas de Brasil.",
+                tab_engineers: "Ingenieros",
+                tab_finance: "Finanzas",
+                tab_guides: "Guías",
+                desc_drive: "Acceso al directorio del equipo.",
+                desc_goals: "Metas mensuales del equipo.",
+                desc_projection: "Seguimiento de proyecciones.",
+                card_robot: "Robot Auxiliar",
+                desc_robot: "Script para asistir ecualizaciones.",
+                note_label: "Nota:",
+                note_robot: "Para usar la automatización, haga una copia del archivo.",
+                card_nfs: "Control de NFs (Nueva)",
+                desc_nfs: "Planilla de control de pedidos.",
+                desc_looker: "Archivo Looker.",
+                card_manual: "Manual de Proveedores",
+                desc_manual: "Instrucciones para envío de NFs.",
+                calendar_title: "Calendario",
+                calendar_highlights: "Destacados del Mes",
+                calendar_no_events: "No hay eventos destacados para este mes.",
+                calendar_critical: "Crítico",
+                calendar_date: "Fecha",
+                links_title: "Enlaces Rápidos",
+                links_badge: "Uso Diario",
+                footer_dept: "Departamento de Finanzas",
+                footer_support: "Soporte Finanzas",
+                weekdays: ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"],
+                months: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
+            },
+            pt: {
+                nav_home: "Início",
+                nav_processes: "Processos",
+                nav_help: "Ajuda",
+                hero_desc: "Diretório centralizado de ferramentas, planilhas e dashboards para as equipes de Engenharia e Financeiro do Brasil.",
+                tab_engineers: "Engenheiros",
+                tab_finance: "Financeiro",
+                tab_guides: "Cartilhas",
+                desc_drive: "Acesso ao diretório do time.",
+                desc_goals: "Metas mensais da equipe.",
+                desc_projection: "Acompanhamento de projeções.",
+                card_robot: "Robô Auxiliar",
+                desc_robot: "Script para auxiliar equalizações.",
+                note_label: "Nota:",
+                note_robot: "Para utilizar as automações, você deve realizar uma cópia do arquivo.",
+                card_nfs: "Controle de NFs (Nova)",
+                desc_nfs: "Planilha de controle de pedidos.",
+                desc_looker: "Arquivo Looker.",
+                card_manual: "Manual de Fornecedores",
+                desc_manual: "Instruções para envio de NFs.",
+                calendar_title: "Calendário",
+                calendar_highlights: "Destaques do Mês",
+                calendar_no_events: "Nenhum evento destacado para este mês.",
+                calendar_critical: "Crítico",
+                calendar_date: "Data",
+                links_title: "Links Rápidos",
+                links_badge: "Uso Diário",
+                footer_dept: "Departamento Financeiro",
+                footer_support: "Suporte Financeiro",
+                weekdays: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"],
+                months: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
+            }
+        };
+
+        // --- 2. Dados do Calendário (com suporte aos dois idiomas) ---
+        const highlightedDates = {
+            '2026-02-02': { 
+                title: { es: 'Inicio del mes Fiscal', pt: 'Início do mês Fiscal' }, 
+                type: 'info' 
+            },
+            '2026-02-16': { 
+                title: { es: 'Último día para envío de NFs de Servicio', pt: 'Último dia para envio de NFs de Serviço' }, 
+                type: 'danger' 
+            },
+            '2026-02-25': { 
+                title: { es: 'Último día para envío de NFs de Material', pt: 'Último dia para envio de NFs de Material' }, 
+                type: 'danger' 
+            },
+        };
+
+        // Estado atual
+        let currentLang = localStorage.getItem('siteLang') || 'es'; // Padrão Espanhol
+        let currentDate = new Date();
+
+        // --- 3. Funções de Tradução ---
+        function updatePageLanguage() {
+            // Atualiza textos estáticos (data-translate)
+            document.querySelectorAll('[data-translate]').forEach(el => {
+                const key = el.getAttribute('data-translate');
+                if (translations[currentLang][key]) {
+                    el.innerText = translations[currentLang][key];
+                }
+            });
+
+            // Atualiza label do botão
+            document.getElementById('langLabel').innerText = currentLang === 'es' ? 'ES' : 'PT';
+            document.documentElement.lang = currentLang;
+
+            // Atualiza o calendário
+            renderCalendar();
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'es' ? 'pt' : 'es';
+            localStorage.setItem('siteLang', currentLang); // Salva preferência
+            updatePageLanguage();
+        }
+
+        // --- 4. Funções do Calendário ---
+        function renderCalendar() {
+            const t = translations[currentLang]; // Pega dicionário atual
+            const year = currentDate.getFullYear();
+            const month = currentDate.getMonth();
+            
+            // Header do mês
+            document.getElementById('monthYearDisplay').innerText = `${t.months[month]} ${year}`;
+
+            // Headers dos dias da semana
+            const weekGrid = document.getElementById('weekdaysGrid');
+            weekGrid.innerHTML = '';
+            t.weekdays.forEach(day => {
+                weekGrid.innerHTML += `<span class="text-[10px] font-bold text-gray-400 uppercase">${day}</span>`;
+            });
+
+            // Dias do mês
+            const firstDay = new Date(year, month, 1).getDay();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+            const grid = document.getElementById('calendarGrid');
+            const eventList = document.getElementById('eventList');
+            
+            grid.innerHTML = '';
+            eventList.innerHTML = '';
+
+            for (let i = 0; i < firstDay; i++) {
+                grid.innerHTML += `<div></div>`;
+            }
+
+            let hasEvents = false;
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dateString = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+                const isToday = new Date().toDateString() === new Date(year, month, day).toDateString();
+                const event = highlightedDates[dateString];
+
+                let bgClass = "hover:bg-gray-100 text-gray-700";
+
+                if (isToday) {
+                    bgClass = "bg-blue-600 text-white shadow-md font-bold hover:bg-blue-700";
+                } else if (event) {
+                    if (event.type === 'danger') bgClass = "bg-red-50 text-red-700 font-bold border border-red-100";
+                    if (event.type === 'warning') bgClass = "bg-yellow-50 text-yellow-700 font-bold border border-yellow-100";
+                    if (event.type === 'info') bgClass = "bg-blue-50 text-blue-700 font-bold border border-blue-100";
+                    if (event.type === 'success') bgClass = "bg-green-50 text-green-700 font-bold border border-green-100";
+                    
+                    hasEvents = true;
+                    let badgeColor = {
+                        danger: 'bg-red-100 text-red-700',
+                        warning: 'bg-yellow-100 text-yellow-700',
+                        info: 'bg-blue-100 text-blue-700',
+                        success: 'bg-green-100 text-green-700'
+                    }[event.type];
+
+                    // Título do evento traduzido
+                    const eventTitle = event.title[currentLang];
+                    const badgeText = event.type === 'danger' ? t.calendar_critical : t.calendar_date;
+
+                    eventList.innerHTML += `
+                        <div class="flex items-start gap-3 p-2 rounded hover:bg-gray-50 transition-colors">
+                            <div class="flex flex-col items-center min-w-[30px] bg-white border border-gray-200 rounded p-1">
+                                <span class="text-[8px] uppercase font-bold text-gray-400">${t.months[month].substring(0,3)}</span>
+                                <span class="text-sm font-bold text-gray-800">${day}</span>
+                            </div>
+                            <div>
+                                <span class="text-[10px] px-1.5 py-0.5 rounded ${badgeColor} font-bold uppercase mb-1 inline-block">${badgeText}</span>
+                                <p class="text-xs text-gray-600 font-medium leading-tight">${eventTitle}</p>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                grid.innerHTML += `
+                    <div class="h-10 md:h-12 rounded-lg flex flex-col items-center justify-center relative cursor-default transition-all ${bgClass}">
+                        <span>${day}</span>
+                    </div>
+                `;
+            }
+
+            if (!hasEvents) {
+                eventList.innerHTML = `<p class="text-xs text-gray-400 italic">${t.calendar_no_events}</p>`;
+            }
+        }
+
+        function changeMonth(step) {
+            currentDate.setMonth(currentDate.getMonth() + step);
+            renderCalendar();
+        }
+
         function openTab(evt, tabName) {
             var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tab-content");
@@ -240,6 +427,11 @@
             document.getElementById(tabName).classList.remove("hidden");
             evt.currentTarget.classList.add("tab-active");
         }
+
+        // --- 5. Inicialização ---
+        document.addEventListener('DOMContentLoaded', () => {
+            updatePageLanguage(); // Carrega o idioma salvo e renderiza
+        });
     </script>
 </body>
 </html>
