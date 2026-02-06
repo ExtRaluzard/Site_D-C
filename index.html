@@ -17,7 +17,7 @@
         
         .hero-bg {
             position: relative;
-            background-image: url(Fundo.png);
+            background-image: url('Fundo.png'); /* Certifique-se que esta imagem existe ou use uma URL absoluta se não aparecer */
             background-size: cover;
             background-position: center;
             height: 320px;
@@ -25,6 +25,8 @@
             align-items: center;
             justify-content: center;
         }
+        /* Fallback caso a imagem Fundo.png não carregue */
+        .hero-bg { background-color: #2d3277; } 
 
         .hero-overlay {
             position: absolute;
@@ -34,6 +36,18 @@
 
         .country-card { transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; }
         .country-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
+
+        /* Botão de Idioma Flutuante */
+        .lang-btn {
+            position: fixed; bottom: 20px; right: 20px; z-index: 100;
+            background: white; border: 1px solid #e5e7eb;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-radius: 9999px; padding: 8px 16px;
+            cursor: pointer; transition: all 0.3s;
+            display: flex; align-items: center; gap: 8px;
+            font-weight: bold; color: #2d3277;
+        }
+        .lang-btn:hover { transform: scale(1.05); background-color: #fff159; }
     </style>
 </head>
 <body class="h-full flex flex-col">
@@ -45,134 +59,149 @@
                 <img src="https://http2.mlstatic.com/frontend-assets/ml-web-navigation/ui-navigation/5.21.22/mercadolibre/logo__large_plus.png" alt="Meli" class="h-9">
             </a>
                 <nav class="hidden md:flex gap-6 h-16 items-center">
-                    <a href="index.html" class="nav-link h-full flex items-center text-sm font-semibold text-gray-700 border-b-3 border-transparent">Início</a>
-                    <a href="#" class="nav-link h-full flex items-center text-sm font-semibold text-gray-700 border-b-3 border-transparent">Processos</a>
-                    <a href="#" class="nav-link h-full flex items-center text-sm font-semibold text-gray-700 border-b-3 border-transparent">Ajuda <i class="fa-solid fa-chevron-down text-[10px] ml-1"></i></a>
+                    <a href="index.html" class="nav-link h-full flex items-center text-sm font-semibold text-gray-700 border-b-3 border-transparent" data-translate="nav_home">Início</a>
+                    <a href="#" class="nav-link h-full flex items-center text-sm font-semibold text-gray-700 border-b-3 border-transparent" data-translate="nav_processes">Processos</a>
+                    <a href="#" class="nav-link h-full flex items-center text-sm font-semibold text-gray-700 border-b-3 border-transparent"><span data-translate="nav_help">Ajuda</span> <i class="fa-solid fa-chevron-down text-[10px] ml-1"></i></a>
                 </nav>
             </div>
 
             <div class="flex items-center gap-5 text-gray-600">
-                <span class="fi fi-es"></span>
-                <span class="fi fi-br rounded-sm"></span>
+                <span class="fi fi-es" title="Español"></span>
+                <span class="fi fi-br rounded-sm" title="Português"></span>
             </div>
         </div>
     </header>
 
     <section class="hero-bg">
-        <div class="hero-overlay"></div> <div class="relative z-10 text-center px-4">
+        <div class="hero-overlay"></div> 
+        <div class="relative z-10 text-center px-4">
             <br><br>
-            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Bem Vindo ao D&C Access Hub</h1>
-            <p class="text-white/90 text-lg md:text-xl max-w-2xl mx-auto">
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4" data-translate="hero_title">Bem Vindo ao D&C Access Hub</h1>
+            <p class="text-white/90 text-lg md:text-xl max-w-2xl mx-auto" data-translate="hero_desc">
                 Selecione o país que deseja navegar.
             </p>
-                        <br><br><br><br><br><br><br>
-
+            <br><br><br><br><br><br><br>
         </div>
     </section>
 
-    <main class="flex-1 max-w-7xl mx-auto w-full px-4 -mt-10 relative z-20"> <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 mb-12">
+    <main class="flex-1 max-w-7xl mx-auto w-full px-4 -mt-10 relative z-20"> 
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 mb-12">
             
-            <a href="MLB - home.HTML"
-            class="country-card bg-white rounded-xl p-6 border border-gray-200 flex flex-col items-center text-center hover:shadow-md hover:border-blue-400 transition cursor-pointer">
-            <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-4">
-                <img src="https://flagcdn.com/w80/br.png" alt="Brasil" class="w-10 shadow-sm">
-            </div>
-
-            <h3 class="font-bold text-gray-800">Brasil - MLB</h3>
-            <span class="text-[10px] text-green-600 font-bold uppercase mt-1">
-                D&C Brasil
-            </span>
+            <a href="MLB - home.HTML" class="country-card bg-white rounded-xl p-6 border border-gray-200 flex flex-col items-center text-center hover:shadow-md hover:border-blue-400 transition cursor-pointer">
+                <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-4">
+                    <img src="https://flagcdn.com/w80/br.png" alt="Brasil" class="w-10 shadow-sm">
+                </div>
+                <h3 class="font-bold text-gray-800" data-translate="card_br_title">Brasil - MLB</h3>
+                <span class="text-[10px] text-green-600 font-bold uppercase mt-1">
+                    D&C Brasil
+                </span>
             </a>
 
-
-            <a href="MLM - home.html"
-            class="country-card bg-white rounded-xl p-6 border border-gray-200 flex flex-col items-center text-center hover:shadow-md hover:border-blue-400 transition cursor-pointer">
-            <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-4">
+            <a href="MLM - home.html" class="country-card bg-white rounded-xl p-6 border border-gray-200 flex flex-col items-center text-center hover:shadow-md hover:border-blue-400 transition cursor-pointer">
+                <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-4">
                     <img src="https://flagcdn.com/w80/mx.png" alt="Mexico" class="w-10">
-            </div>
-
-                <h3 class="font-bold text-gray-800">Mexico - MLM</h3>
-            <span class="text-[10px] text-green-600 font-bold uppercase mt-1">
-                D&C Mexico
-            </span>
-             <span class="text-[12px] text-gray-400 font-bold uppercase mt-3">
-              +------------------------------------+ <br>
-              | EM DESENVOLVIMENTO                 |<br>
-              +------------------------------------+ <br>
-            </span>
+                </div>
+                <h3 class="font-bold text-gray-800" data-translate="card_mx_title">Mexico - MLM</h3>
+                <span class="text-[10px] text-green-600 font-bold uppercase mt-1">
+                    D&C Mexico
+                </span>
+                <span class="text-[12px] text-gray-400 font-bold uppercase mt-3">
+                    | <span data-translate="card_dev">EM DESENVOLVIMENTO</span> |<br>
+                </span>
             </a>
 
-             <div class="country-card bg-white rounded-xl p-6 border border-gray-200 flex flex-col items-center text-center opacity-60">
+            <div class="country-card bg-white rounded-xl p-6 border border-gray-200 flex flex-col items-center text-center opacity-60">
                 <div class="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center gap-1 mb-4">
-                <img src="https://flagcdn.com/w80/ar.png" alt="Argentina" class="w-5">
-                <img src="https://flagcdn.com/w80/cl.png" alt="Chile" class="w-5">
-                <img src="https://flagcdn.com/w80/pe.png" alt="Peru" class="w-5">
-                <img src="https://flagcdn.com/w80/co.png" alt="Colômbia" class="w-5">
-                <img src="https://flagcdn.com/w80/uy.png" alt="Uruguay" class="w-5">
+                    <img src="https://flagcdn.com/w80/ar.png" alt="Argentina" class="w-5">
+                    <img src="https://flagcdn.com/w80/cl.png" alt="Chile" class="w-5">
+                    <img src="https://flagcdn.com/w80/pe.png" alt="Peru" class="w-5">
+                    <img src="https://flagcdn.com/w80/co.png" alt="Colômbia" class="w-5">
+                    <img src="https://flagcdn.com/w80/uy.png" alt="Uruguay" class="w-5">
                 </div>
 
                 <h3 class="font-bold text-gray-800">Cono Sur</h3>
-                <span class="text-[10px] text-gray-400 font-bold uppercase mt-1">Em breve</span>
+                <span class="text-[10px] text-gray-400 font-bold uppercase mt-1" data-translate="card_soon">Em breve</span>
             </div>
-
-            <!-- <div class="country-card bg-white rounded-xl p-6 border border-gray-200 flex flex-col items-center text-center opacity-60">
-                <div class="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center mb-4">
-                    <img src="https://flagcdn.com/w80/cl.png" alt="Chile" class="w-10">
-                </div>
-                <h3 class="font-bold text-gray-800">Chile - MLC</h3>
-                <span class="text-[10px] text-gray-400 font-bold uppercase mt-1">Em breve</span>
-            </div>
-
-            <div class="country-card bg-white rounded-xl p-6 border border-gray-200 flex flex-col items-center text-center opacity-60">
-                <div class="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center mb-4">
-                    <img src="https://flagcdn.com/w80/pe.png" alt="Peru" class="w-10">
-                </div>
-                <h3 class="font-bold text-gray-800">Peru - MPE</h3>
-                <span class="text-[10px] text-gray-400 font-bold uppercase mt-1">Em breve</span>
-            </div>
-
-            <div class="country-card bg-white rounded-xl p-6 border border-gray-200 flex flex-col items-center text-center opacity-60">
-                <div class="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center mb-4">
-                    <img src="https://flagcdn.com/w80/co.png" alt="Colômbia" class="w-10">
-                </div>
-                <h3 class="font-bold text-gray-800">Colombia - MCO</h3>
-                <span class="text-[10px] text-gray-400 font-bold uppercase mt-1">Em breve</span>
-            </div>
-
-             <div class="country-card bg-white rounded-xl p-6 border border-gray-200 flex flex-col items-center text-center opacity-60">
-                <div class="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center mb-4">
-                    <img src="https://flagcdn.com/w80/us.png" alt="EUA" class="w-10">
-                </div>
-                <h3 class="font-bold text-gray-800">Estados Unidos - USA</h3>
-                <span class="text-[10px] text-gray-400 font-bold uppercase mt-1">Em breve</span>
-            </div>
-
-            <div class="country-card bg-white rounded-xl p-6 border border-gray-200 flex flex-col items-center text-center opacity-60">
-                <div class="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center mb-4">
-                    <img src="https://flagcdn.com/w80/uy.png" alt="Uruguay" class="w-10">
-                </div>
-                <h3 class="font-bold text-gray-800"> Uruguai - MLU</h3>
-                <span class="text-[10px] text-gray-400 font-bold uppercase mt-1">Em breve</span>
-            </div> -->
 
         </div>     
     </main>
 
-     <footer class="bg-white border-t border-gray-200 py-6">
+    <footer class="bg-white border-t border-gray-200 py-6">
         <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
             <div class="text-xs text-gray-400">
-                &copy; 2026 Mercado Livre - Departamento Financeiro - D&C - MLB
+                &copy; 2026 Mercado Livre - <span data-translate="footer_dept">Departamento Financeiro</span> - D&C - MLB
             </div>
             <div class="flex gap-6 items-center">
                 <a href="https://wa.me/11934509161" class="text-xs font-bold meli-blue flex items-center gap-2">
-                    <i class="fa-brands fa-whatsapp text-green-500 text-lg"></i> Suporte Financeiro
+                    <i class="fa-brands fa-whatsapp text-green-500 text-lg"></i> <span data-translate="footer_support">Suporte Financeiro</span>
                 </a>
                 <img src="https://http2.mlstatic.com/frontend-assets/ml-web-navigation/ui-navigation/5.21.22/mercadolibre/logo__large_plus.png" alt="Meli" class="h-4">
             </div>
         </div>
     </footer>
+
+    <button onclick="toggleLanguage()" class="lang-btn">
+        <i class="fa-solid fa-globe"></i>
+        <span id="langLabel">PT</span>
+    </button>
+
+    <script>
+        const translations = {
+            pt: {
+                nav_home: "Início",
+                nav_processes: "Processos",
+                nav_help: "Ajuda",
+                hero_title: "Bem Vindo ao D&C Access Hub",
+                hero_desc: "Selecione o país que deseja navegar.",
+                card_br_title: "Brasil - MLB",
+                card_mx_title: "Mexico - MLM",
+                card_dev: "EM DESENVOLVIMENTO",
+                card_soon: "Em breve",
+                footer_dept: "Departamento Financeiro",
+                footer_support: "Suporte Financeiro"
+            },
+            es: {
+                nav_home: "Inicio",
+                nav_processes: "Procesos",
+                nav_help: "Ayuda",
+                hero_title: "Bienvenido al D&C Access Hub",
+                hero_desc: "Seleccione el país que desea navegar.",
+                card_br_title: "Brasil - MLB",
+                card_mx_title: "México - MLM",
+                card_dev: "EN DESARROLLO   ", /* Espaços extras para alinhar com a arte ASCII */
+                card_soon: "Próximamente",
+                footer_dept: "Departamento de Finanzas",
+                footer_support: "Soporte Finanzas"
+            }
+        };
+
+        // Estado atual (chave única para o Hub)
+        let currentLang = localStorage.getItem('siteLangHub') || 'es'; // Padrão Português para o Hub
+
+        function updatePageLanguage() {
+            // Atualiza textos estáticos
+            document.querySelectorAll('[data-translate]').forEach(el => {
+                const key = el.getAttribute('data-translate');
+                if (translations[currentLang][key]) {
+                    el.innerText = translations[currentLang][key];
+                }
+            });
+
+            // Atualiza label do botão e tag html
+            document.getElementById('langLabel').innerText = currentLang === 'es' ? 'ES' : 'PT';
+            document.documentElement.lang = currentLang === 'es' ? 'es' : 'pt-BR';
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'es' ? 'pt' : 'es';
+            localStorage.setItem('siteLangHub', currentLang);
+            updatePageLanguage();
+        }
+
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', () => {
+            updatePageLanguage();
+        });
+    </script>
 </body>
-
 </html>
-
-
